@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "tty-spinner"
 gem 'bundler', '~> 2.1', '>= 2.1.4'
+gem 'pry-rails', '~> 0.3.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

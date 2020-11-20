@@ -5,8 +5,8 @@ namespace :dev do
             show_spinner("Apagando DB..."){%x(rails db:drop)}         
             show_spinner("Criando DB...") {%x(rails db:create)}
             show_spinner("Migrando DB..."){%x(rails db:migrate)}
-            %x(rails dev:add_coins)
             %x(rails dev:add_mining_types)     
+            %x(rails dev:add_coins)
         else 
             puts "Você não está em ambiente de desenvolvimento!"
         end
@@ -19,27 +19,32 @@ namespace :dev do
                     {
                         description: 'Bitcoin', 
                         acronym: "BTC",
-                        url_image: "https://assets.chinatechnews.com/wp-content/uploads/bitcoin-logo.jpg"
+                        url_image: "https://assets.chinatechnews.com/wp-content/uploads/bitcoin-logo.jpg",
+                        mining_type: MiningType.find_by(acronym: 'PoW')
                     },
                     {
                         description: 'Ethereum',
                         acronym: 'ETH',
-                        url_image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png'
+                        url_image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png',
+                        mining_type: MiningType.all.sample
                     },
                     {
                         description: 'Dash',
                         acronym: 'DASH',
-                        url_image: 'https://ih1.redbubble.net/image.565893629.7574/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg'
+                        url_image: 'https://ih1.redbubble.net/image.565893629.7574/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg',
+                        mining_type: MiningType.all.sample
                     },
                     {
                         description: 'Iot',
                         acronym: 'IOT',
-                        url_image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png'
+                        url_image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png',
+                        mining_type: MiningType.all.sample
                     },
                     {
                         description: 'ZCash',
                         acronym: 'ZEC',
-                        url_image: 'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/512/Zcash-ZEC-icon.png'
+                        url_image: 'https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/512/Zcash-ZEC-icon.png',
+                        mining_type: MiningType.all.sample
                     }
                 ]
             coins.each do |coin|
