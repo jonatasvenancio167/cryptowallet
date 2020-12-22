@@ -244,6 +244,7 @@ DEPENDENCIES
   bundler (~> 2.1, >= 2.1.4)
   byebug
   capybara (>= 2.15)
+  i18n
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pry-rails (~> 0.3.4)
